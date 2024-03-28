@@ -1,0 +1,550 @@
+:root {
+  --cor-background: #212123;
+  --cor-reflexo: rgba(255, 255, 255, 0.4);
+  --cores-dancantes: rgb(76, 217, 105), rgb(52, 170, 220), rgb(88, 86, 217),
+    rgb(255, 45, 83);
+  --cor-background2: #060648;
+}
+
+html {
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body {
+ height: 15600px;
+ background: linear-gradient(to right bottom, #fecaca, #fed7aa, #fde68a);
+}
+
+ul,
+li {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+select:required:invalid {
+ color: white;
+}
+
+option[value=""][disabled] {
+ display: none;
+}
+
+option {
+ color: black;
+}
+
+/* .header {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-between;
+ width: 100vw;
+ padding: 8px 16px;
+
+ transition:
+  background-color 0.3s,
+  transform 0.3s;
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 1000;
+} */
+
+.header {
+ border: 1px solid #000;
+ box-shadow: 1px 1px 16px #000;
+}
+
+.header a {
+ color: #000;
+}
+
+.header > h1:first-child {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: center;
+ font-size: 20px;
+ padding: 18px 0 0;
+}
+
+.header.scrolled {
+ padding: 16px 8px;
+ background-color: #fa0053;
+ transform: scale(1);
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 1000;
+}
+
+.header.scrolled .nav_mobile {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-around;
+ font-size: 20px;
+}
+
+.header.scrolled .nav_mobile a {
+ color: #fff;
+}
+
+.header.scrolled > h1:first-child {
+ color: #fff;
+}
+
+.header.scrolled .interface {
+ padding: 0;
+}
+
+.nav_mobile {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-around;
+ font-size: 20px;
+}
+
+.nav_mobile a {
+ text-decoration: none;
+ color: #000;
+}
+
+.box_tarefas {
+ margin: 20px auto;
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-around;
+ font-size: 20px;
+}
+
+.box_tarefas label {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: center;
+}
+.box_tarefas button {
+ background: green;
+ border-radius: 0 8px 8px 0;
+ border: none;
+}
+
+.box_tarefas input {
+ padding: 0 0 0 10px;
+}
+
+.box_tarefas button, .box_tarefas input {
+ outline: none;
+ height: 35px;
+}
+
+.box-tarefas {
+  margin: 12px auto;
+ padding: 8px;
+ border: 1px solid #000;
+}
+
+.container-categorias {
+   margin: 20px auto;
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-between;
+ font-size: 20px;
+width: 90vw;
+ border: 1px solid #000;
+}
+
+.conteudo {
+margin: 32px auto 0;
+width: 90vw;
+}
+
+.container-categorias h1 {
+  display: inline-flex;
+  align-items: center;
+   margin: 0;
+   text-align: center;
+ 
+}
+
+.btns_categorias button {
+  width: 95px;
+}
+
+.box-tarefas > p:first-child {
+ display: flex;
+ flex-flow: row wrap;
+ gap: 5rem;
+ width: 100%;
+}
+
+.box-tarefas :nth-child(3) {
+ display: flex;
+ flex-flow: row wrap;
+ /* gap: 1rem; */
+ width: 100%;
+}
+
+.box-tarefas :nth-child(3) p {
+ border: 1px solid #000;
+ border-radius: 50%;
+ background: green;
+}
+
+.box-tarefas :nth-child(3) input {
+ display: none;
+ border: none;
+ border-radius: 50%;
+}
+
+.box-tarefas-btns {
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+margin: 8px auto;
+width: 100%;
+}
+
+.inputBoxData {
+ width: 100%;
+  display: flex;
+ flex-flow: row wrap;
+ justify-content: space-around;
+}
+
+.inputBoxData > label:first-child {
+ width: 100%;
+  display: flex;
+ flex-flow: column wrap;
+ justify-content: center;
+ text-align: center;
+ margin: 18px 0;
+}
+
+.inputBoxData label > b:first-child {
+ width: 100%;
+  display: flex;
+ flex-flow: column wrap;
+ justify-content: center;
+}
+
+.inputBoxData > select {
+ width: 30%;
+}
+
+
+.datas-user {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-between;
+ width: 325px;
+}
+
+.datas-user input {
+ width: 20%;
+ margin: 0 auto;
+ /* 
+ flex-flow: row wrap;
+ justify-content: space-between;
+*/
+}
+
+
+.inputs {
+ border: 1px solid #000;
+}
+
+.dropdown-menu.show {
+position: relative;
+top: 0;
+left: -130px !important;
+ margin: 19px 0 0 !important;
+ box-shadow: 1px 1px 16px #000;
+}
+
+.dropdown-item span {
+  font-weight: 900;
+  color: green;
+}
+
+.header.scrolled .dropdown-menu.show {
+ margin: 18px 0 0 !important;
+}
+
+.container-tarefas {
+ margin: 18px auto;
+}
+
+.interface {
+ /* width: 90vw
+ */
+ padding: 0 16px 16px;
+}
+
+.container-tarefas {
+    max-height: 470px;
+    overflow-y: auto;
+}
+
+.container-tarefas::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container-tarefas::-webkit-scrollbar-thumb {
+    background-color: #888; /* cor do polegar da barra de rolagem */
+    border-radius: 5px; /* borda arredondada do polegar */
+}
+
+.container-tarefas::-webkit-scrollbar-track {
+    background-color: #f2f2f2; /* cor de fundo da barra de rolagem */
+}
+
+
+/* .box-tarefas button {
+display: inline-flex;
+flex-flow: row wrap;
+justify-content: space-around;
+margin: 8px auto;
+width: 35%;
+} */
+.box_flex {
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+margin: 8px auto;
+width: 100%;
+}
+
+.item-icon-nome {
+display: flex;
+flex-flow: row wrap;
+height: auto;
+width: 100%;
+}
+
+.item-icon {
+margin: 0 8px;
+padding: 5px 0 0;
+}
+
+/* .box-tarefas p > input {
+display: flex;
+flex-flow: row wrap;
+gap: 15rem;
+width: 100%;
+} */
+
+.check-tarefa {
+ border: 1px solid #000;
+ border-radius: 50%;
+ background: green;
+}
+
+.tarefa {
+margin: 0 auto 12px;
+
+
+}
+
+.tarefas {
+display: flex;
+flex-flow: row wrap;
+margin: 0 auto;
+border: 1px solid #000;
+
+}
+
+.tarefas_header {
+display: inline-flex;
+flex-flow: row wrap;
+flex-grow: 1;
+}
+
+.tarefas_body {
+
+}
+
+.tarefas_footer {
+
+}
+
+.footer {
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+margin: 32px auto;
+
+}
+
+.box_tarefa {
+ position: absolute;
+ 
+}
+
+.inputBox {
+  position: relative;
+  height: 5px;
+}
+
+.inputUser {
+background: none;
+border: none;
+border-bottom: 1px solid #000;
+font-size: 16px;
+width: 100%;
+letter-spacing: 1px;
+}
+
+.labelInput {
+position: absolute;
+top: 0;
+left: 0;
+pointer-events: none;
+transition: .5s;
+font-size: 16px;
+}
+
+.inputUser:focus ~ .labelInput, .inputUser:valid ~ .labelInput {
+  top: -20px;
+  font-size: 14px;
+  color: dodgerblue;
+}
+
+.inputTarefa {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.modal_body_height {
+ height: 220px;
+ margin: 10px 0 0;
+}
+
+.modal-footer {
+justify-content: space-between !important;
+}
+
+@media screen and (max-width: 800px) {
+ .interface {
+  /* padding: 0 16px 16px; */
+ }
+ .nav_mobile {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: 20px;
+ }
+}
+
+#checkCat {
+visibility: hidden;
+}
+
+#liveToastBtn {
+/* 
+*/
+display: none;
+visibility: hidden; 
+opacity: 0;
+}
+
+/* 
+#tooltipCat {
+display: none;
+visibility: hidden; 
+opacity: 0;
+}
+
+*/
+
+#liveToast {
+width: 396px; 
+height: 343px; 
+opacity: 1 !important;
+z-index: 999;
+background-color: #fff !important;
+}
+
+#liveToast.toast.fade.show, .toast-body {
+opacity: 1 !important;
+z-index: 999;
+  
+}
+
+
+.js-data {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  margin: 0 auto 20px;
+  z-index: 9;
+font-size: 16px;
+}
+
+
+
+.conteudos {
+  background: linear-gradient(to right, var(--cores-dancantes));
+  /* width: 550px; 
+  width: 370px;
+  */
+  width: 90%;
+  height: 70px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 999;
+  animation: coresDancantes 3s linear infinite;
+}
+
+@keyframes coresDancantes {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.conteudos .relogio, .conteudos span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.conteudos .relogio {
+  z-index: 1;
+  background-color: var(--cor-background);
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-box-reflect: below 50px
+    linear-gradient(transparent, var(--cor-reflexo));
+  padding: 10px;
+}
+
+.conteudos .relogio h6 {
+  background: linear-gradient(to right, var(--cores-dancantes));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1rem;
+}
+
+.conteudos span {
+  height: 100%;
+  width: 100%;
+  background: inherit;
+  border-radius: 10px;
+}
+
+.conteudos span:nth-child(1) {
+  filter: blur(6px);
+}
+
+.conteudos span:nth-child(2) {
+  filter: blur(22px);
+}

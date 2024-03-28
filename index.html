@@ -1,0 +1,725 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+   crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+  <script
+   src="https://code.jquery.com/jquery-3.7.1.js"
+   integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+   crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="../Botões/modern-button-styles45-css-only-buttons/modern-button-styles45-css-only-buttons/src/style.css" type="text/css" />
+  <!-- <script src="script.js" type="text/javascript" charset="utf-8" defer></script> -->
+  <script src="scripts.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="index.js" type="text/javascript" charset="utf-8" defer></script>
+  <title></title>
+ </head>
+  <!--  <div class="dropdown">
+   <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+   </button>
+   <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+   </ul>
+  </div>-->
+  <!-- <p class="js-data"></p> -->
+<!--     <div class="conteudos">
+      <div class="relogio">
+          <h6 class="js-data"></h6>
+      </div>
+      <span></span>
+      <span></span>
+    </div> -->
+ <body>
+          <a class="dropdown-item"
+       id="edtTarefaModaisLink"
+       data-bs-toggle="modal" data-bs-target="#edtTarefaModais"
+       onclick="clearForm()"
+       style="display: none;">
+        <span>+</span>
+        Tarefa Modal
+       </a>
+  <header class="header">
+   <h1>
+     GERENCIAGRAM
+   </h1>
+
+   <nav class="nav_mobile interface">
+    <!---->
+
+    <a onclick="verTarefas()"> Tarefas </a>
+    <!---->
+    <a id="linkCategorias" onclick="verCategoria()"> Categorias </a>
+    <div class="dropdown">
+     <a data-bs-toggle="dropdown" aria-expanded="false"> Filtrar </a>
+
+     <ul class="dropdown-menu">
+      <li style="display: none">
+       <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addTarefaModal">
+        <span>+</span>
+        Tarefa
+       </a>
+      </li>
+      <li>
+        <form class="row g-3 needs-validation" novalidate id="form_filtro">
+  
+  
+  
+  <div class="col-md-4">
+    <label for="dataInicialFiltro" class="form-label">
+      Início
+    </label>
+    <input type="date" class="form-control" id="dataInicialFiltro" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+    <div class="invalid-feedback">
+        Digite a data inicial!
+      </div>
+  </div>
+ 
+  <div class="col-md-4">
+    <label for="dataFinalFiltro" class="form-label">
+      Fim
+    </label>
+    <input type="date" class="form-control" id="dataFinalFiltro" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+        <div class="invalid-feedback">
+        Digite a data final!
+      </div>
+  </div>
+ 
+  <div class="col-12">
+    <button class="btn btn-primary btns_Modal_Tarefas text-black" id="submite" type="submit"
+    onclick="filtro()"
+    >Salvar</button> 
+    
+    <button class="btn btn-primary btns_Modal_Tarefas text-black" id="submites" type="submit"
+    >Todas</button> 
+    
+    
+ <button type="button" class="btn btn-secondary btns_Modal_Tarefas text-black" data-bs-dismiss="modal" onclick="clearFormInputs()">Fechar</button>
+ 
+
+  </div>
+ 
+</form>
+
+      </li>
+      
+     </ul>
+    </div>
+    <div class="dropdown">
+     <a data-bs-toggle="dropdown" aria-expanded="false"> ⚙ </a>
+
+     <ul class="dropdown-menu">
+      <li style="display: none">
+       <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addTarefaModal">
+        <span>+</span>
+        Tarefa
+       </a>
+      </li>
+      
+      <!-- <li>
+       <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addCategoriaModal">
+        <span>+</span>
+        Categoria
+       </a>
+      </li> -->
+      
+      <!-- <li>
+       <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addTarefaModals">
+        <span>+</span>
+        Tarefa Nova
+       </a>
+      </li> -->
+      
+      <li>
+       <a class="dropdown-item"
+       id="addTarefaModaisLink"
+       data-bs-toggle="modal" data-bs-target="#addTarefaModais"
+       onclick="clearForm()">
+        <span>+</span>
+        Tarefa Modal
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+  </header>
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+ -->
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="addTarefaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Tarefas Desatualizado</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+      <section class="box_tarefas">
+       <label for="input_tarefas">
+        <input type="text" name="" id="input_tarefas" class="inputs" placeholder="Digite a tarefa" />
+        <button class="button" onclick="addTarefa()" type="button">OK</button>
+       </label>
+
+       <select name="option_categorias" id="option_categorias" class="">
+        <option value="" disabled selected required>Categorias</option>
+       </select>
+
+       <select name="data_hoje" id="data_hoje" class="">
+        <option value="" disabled selected required>Hoje</option>
+       </select>
+
+       <div class="inputBoxData">
+        <label for=""><b>Data Inicío:</b></label>
+
+        <select name="diasMes" id="diasMes" class="">
+         <option value="" disabled selected required>Dia</option>
+        </select>
+
+        <select name="mesMes" id="mesMes" class="">
+         <option value="" disabled selected required>Mês</option>
+         <option value="01">Janeiro</option>
+         <option value="02">Fevereiro</option>
+         <option value="03">Março</option>
+         <option value="04">Abril</option>
+         <option value="05">Maio</option>
+         <option value="06">Junho</option>
+
+         <option value="07">Julho</option>
+         <option value="08">Agosto</option>
+         <option value="09">Setembro</option>
+         <option value="10">Outubro</option>
+         <option value="11">Novembro</option>
+         <option value="12">Dezembro</option>
+        </select>
+
+        <select name="dataAnos" id="dataAnos" class="">
+         <option value="" disabled selected required>Ano</option>
+        </select>
+       </div>
+       <div class="inputBoxData">
+        <label for=""><b>Data Fim:</b></label>
+
+        <select name="diasMes" id="diasMesFim" class="">
+         <option value="" disabled selected required>Dia</option>
+        </select>
+
+        <select name="mesMes" id="mesMesFim" class="">
+         <option value="" disabled selected required>Mês</option>
+         <option value="01">Janeiro</option>
+         <option value="02">Fevereiro</option>
+         <option value="03">Março</option>
+         <option value="04">Abril</option>
+         <option value="05">Maio</option>
+         <option value="06">Junho</option>
+
+         <option value="07">Julho</option>
+         <option value="08">Agosto</option>
+         <option value="09">Setembro</option>
+         <option value="10">Outubro</option>
+         <option value="11">Novembro</option>
+         <option value="12">Dezembro</option>
+        </select>
+
+        <select name="dataAnos" id="dataAnosFim" class="">
+         <option value="" disabled selected required>Ano</option>
+        </select>
+       </div>
+      </section>
+     </div>
+     <!--      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+     </div> -->
+    </div>
+   </div>
+  </div>
+
+  <div class="modal fade" id="addTarefaModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel"
+      onclick="clickButton()">Adicionar Tarefas</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body modal_body_height">
+      <section class="box_tarefa">
+      
+       <div class="inputBox">
+        <input type="text" name="inputUser" id="input_tarefa" class="inputUser" autocomplete="no" required />
+        <label for="input_tarefa" class="labelInput">Digite o nome da Tarefa!</label>
+       </div>
+       <br />
+       <div class="inputBox" style="margin: 36px 0 0">
+        <input type="text" list="categoriasList" id="categoriasListInput" class="inputUser" required />
+        <label for="" class="labelInput"> Digite o nome da Categoria! </label>
+        <datalist id="categoriasList"></datalist>
+       </div>
+       <br />
+<button 
+            type="button" class="btn btn-secondary"
+id="tooltipCat"
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="Digite um nome para a categoria!"
+        data-bs-delay='{ "show": 1500, "hide": 100 }'
+        >
+  
+</button>
+       <br />
+       <label for="" class="inputTarefa">
+        Inicio
+        <input type="date" name="inicio_tarefa" id="inicio_tarefa" />
+       </label>
+       <br />
+       <label for="" class="inputTarefa">
+        Fim &nbsp;
+        <input type="date" name="fim_tarefa" id="fim_tarefa" />
+       </label>
+      </section>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      <button type="button" class="btn btn-primary" onclick="addTarefas()">Salvar</button>
+     </div>
+    </div>
+   </div>
+  </div>
+   <!-- Modal Add Tarefas -->
+  <div class="modal fade" id="addTarefaModais" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel"
+      >Adicionar Tarefa</h1>
+      <button type="button" class="btn-close text-black" data-bs-dismiss="modal" aria-label="Close" onclick="clearFormInputs()"
+        style="font-size: 20px;"
+      >
+        X
+      </button>
+     </div>
+     <div class="modal-body ">
+<!--       <section class="box_tarefa">
+      
+       <div class="inputBox">
+        <input type="text" name="inputUser" id="input_tarefa" class="inputUser" autocomplete="no" required />
+        <label for="input_tarefa" class="labelInput">Digite o nome da Tarefa!</label>
+       </div>
+
+
+       <br />
+       <div class="inputBox" style="margin: 36px 0 0">
+        <input type="text" list="categoriasList" id="categoriasListInput" class="inputUser" required />
+        <label for="" class="labelInput"> Digite o nome da Categoria! </label>
+        <datalist id="categoriasList"></datalist>
+       </div>
+       <br />
+
+       <br/>
+       <label for="" class="inputTarefa">
+        Inicio
+        <input type="date" name="inicio_tarefa" id="inicio_tarefa" />
+       </label>
+       <br />
+       <label for="" class="inputTarefa">
+        Fim &nbsp;
+        <input type="date" name="fim_tarefa" id="fim_tarefa" />
+       </label>
+      </section> -->
+<!-- <div class="col-md-4">
+    <label for="dataInput">Informe a Data (DD/MM/AAAA):</label>
+  <input type="text" id="dataInput" placeholder="DD/MM/AAAA" pattern="\d{2}\/\d{2}\/\d{4}" maxlength="10">
+  <button id="btnvalidarData" >Validar Data</button>
+
+    
+    <div class="valid-feedback">
+      
+    </div>
+    <div class="invalid-feedback">
+      
+    </div>
+  </div> -->
+<form class="row g-3 needs-validation" novalidate id="form_tarefa">
+  
+  
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">
+      Tarefa
+    </label>
+    <input type="text" class="form-control" id="validationCustom01" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+    <div class="invalid-feedback">
+        Digite o nome da tarefa!
+      </div>
+  </div> 
+  
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">
+      Categoria
+    </label>
+    <input type="text" class="form-control" list="categoriasLists" id="validationCustom02" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+        <div class="invalid-feedback">
+        Digite o nome da categoria!
+      </div>
+      <datalist id="categoriasLists"></datalist>
+  </div>
+  
+  <div class="col-md-4">
+    <label for="dataInicial" class="form-label">
+      Início
+    </label>
+    <input type="date" class="form-control" id="dataInicial" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+    <div class="invalid-feedback">
+        Digite a data inicial!
+      </div>
+  </div>
+ 
+  <div class="col-md-4">
+    <label for="dataFinal" class="form-label">
+      Fim
+    </label>
+    <input type="date" class="form-control" id="dataFinal" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+        <div class="invalid-feedback">
+        Digite a data final!
+      </div>
+  </div>
+
+
+
+  <!-- <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">City</label>
+    <input type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">State</label>
+    <select class="form-select" id="validationCustom04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div> -->
+  
+<!--   <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Concorde com os termos e condições
+      </label>
+      <div class="invalid-feedback">
+        Você deve concordar antes de enviar.
+      </div>
+    </div>
+  </div> -->
+  
+  <div class="col-12">
+    <button class="btn btn-primary btns_Modal_Tarefas text-black" id="submit" type="submit"
+    onclick="addNovaTarefa()"
+    >Salvar</button> 
+    
+    
+ <button type="button" class="btn btn-secondary btns_Modal_Tarefas text-black" data-bs-dismiss="modal" onclick="clearFormInputs()">Fechar</button>
+ 
+
+  </div>
+ 
+<!--   <div class="col-12">
+   
+ <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearFormInputs()">Fechar</button>
+  </div> -->
+</form>
+     </div>
+     <div class="modal-footer">
+     <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> -->
+      
+      <!-- <button class="btn btn-primary" type="submit"
+    onclick="addNovaTarefa()">Salvar</button> -->
+      
+      
+     </div>
+    </div>
+   </div>
+  </div>
+ 
+  <div class="modal fade" id="edtTarefaModais" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel"
+      >Editar Tarefa</h1>
+      <button type="button" class="btn-close text-black" data-bs-dismiss="modal" aria-label="Close" onclick="clearFormInputs()"
+        style="font-size: 20px;"
+      >
+        X
+      </button>
+     </div>
+     <div class="modal-body ">
+
+<form class="row g-3 needs-validation" novalidate id="form_tarefa_edt">
+  
+  
+  <div class="col-md-4">
+    <label for="nome_tarefa" class="form-label">
+      Tarefa
+    </label>
+    <input type="text" class="form-control" id="nome_tarefa" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+    <div class="invalid-feedback">
+        Digite o nome da tarefa!
+      </div>
+  </div> 
+  
+  <div class="col-md-4">
+    <label for="nome_categoria" class="form-label">
+      Categoria
+    </label>
+    <input type="text" class="form-control" list="categoriasLists" id="nome_categoria" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+        <div class="invalid-feedback">
+        Digite o nome da categoria!
+      </div>
+      <datalist id="categoriasLists"></datalist>
+  </div>
+  
+  <div class="col-md-4">
+    <label for="dataInicials" class="form-label">
+      Início
+    </label>
+    <input type="date" class="form-control" id="dataInicials" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+    <div class="invalid-feedback">
+        Digite a data inicial!
+      </div>
+  </div>
+ 
+  <div class="col-md-4">
+    <label for="dataFinals" class="form-label">
+      Fim
+    </label>
+    <input type="date" class="form-control" id="dataFinals" value="" required>
+    <div class="valid-feedback">
+      Correto!
+    </div>
+        <div class="invalid-feedback">
+        Digite a data final!
+      </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary btns_Modal_Tarefas text-black" id="submits" type="submit"
+    >Salvar</button> 
+    
+    
+ <button type="button" id="close" class="btn btn-secondary btns_Modal_Tarefas text-black" data-bs-dismiss="modal" onclick="clearFormInputs()">Fechar</button>
+ 
+
+  </div>
+ 
+</form>
+     </div>
+     <div class="modal-footer">
+     <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> -->
+      
+      <!-- <button class="btn btn-primary" type="submit"
+    onclick="addNovaTarefa()">Salvar</button> -->
+      
+      
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Modal Add Tarefas -->
+<!--<button type="button" class="btn btn-secondary"
+id="tooltipCat"
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="Digite um nome para a categoria!"
+        data-bs-delay='{ "show": 1500, "hide": 100 }'
+        >
+  
+</button>
+
+
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+
+
+
+<!-- 
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+ -->
+ 
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500">
+    <div class="toast-header">
+      <!-- <img src="./imagemsobre.jpeg" class="rounded me-2" alt="..."> -->
+      <strong class="me-auto">Categorias</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Digite um nome para a categoria!
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="addCategoriaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Categoria</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+      <section class="box_tarefas">
+       <label for="input_categorias">
+        <input type="text" name="" id="input_categorias" class="inputs" placeholder="Digite a categoria" />
+        <button class="button" id="btn_add_categorias" type="button">OK</button>
+       </label>
+      </section>
+     </div>
+     <!--      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+     </div> -->
+    </div>
+   </div>
+  </div>
+  <!-- Modal add Categorias -->
+
+  <main class="main">
+   <!--   <section class="box_tarefas">
+    <label for="input_tarefas">
+     <input type="text" name="" id="input_tarefas" placeholder="Digite a tarefa" />
+     <button class="button" type="button">OK</button>
+    </label>
+   </section>-->
+
+   <section class="conteudo">
+    <div class="accordion accordion-flush tarefa-boxes" id="accordionFlushExample"></div>
+   </section>
+
+   <!--      <div class="box-tarefas">
+       <p>03-03-2024<span>Casa</span></p>
+       <h3>Limpar a casa</h3>
+       <p>
+       <input type="checkbox" name="check-tarefa" class="check-tarefa" />
+         Incompleta
+       </p>
+       <p>
+       <span>Conclusão: </span>
+         03-03-2024
+       </p>
+       <button type="button">
+         ✏
+       </button>
+       <button type="button">
+         🗑
+       </button>
+       <button type="button">
+         EDITAR
+       </button>
+       <button type="button">
+         EXCLUIR
+       </button>
+     </div> -->
+   <section class="container-tarefas interface"></section>
+  </main>
+
+  <footer class="footer">
+   <button id="removerChave" type="button">removerChave</button>
+  </footer>
+
+<!-- 
+<div id="liveAlertPlaceholder">
+</div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+ -->
+
+<button class="btn btn-primary" id="checkCat"
+type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>
+      Digite um nome para a categoria!
+    </p>
+  </div>
+</div>
+
+<!-- <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button> -->
+
+
+  <script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+   crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/eruda" onload="eruda.init()"></script>
+  <br />
+  <!--<button id="removerChave" type="button">removerChave</button>-->
+ </body>
+</html>
